@@ -1,9 +1,7 @@
 -- Add up migration script here
 
-CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
-
 CREATE TABLE feedbacks (
-    id UUID PRIMARY KEY NOT NULL DEFAULT (uuid_generate_v4()),
+    id CHAR(36) PRIMARY KEY NOT NULL,
     name VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL,
     feedback TEXT NOT NULL UNIQUE,
