@@ -1,13 +1,14 @@
+version: '3'
 services:
-  postgres:
-    image: postgres:latest
-    container_name: postgres
-    ports:
-      - '6500:5432'
-    volumes:
-      - progresDB:/var/lib/postgresql/data
+  mysql:
+    image: mysql:latest
+    container_name: mysql
     env_file:
       - ./.env
+    ports:
+      - '6500:3306'
+    volumes:
+      - mysqlDB:/var/lib/mysql
   pgAdmin:
     image: dpage/pgadmin4
     container_name: pgAdmin
@@ -16,4 +17,4 @@ services:
     ports:
       - '5050:80'
 volumes:
-  progresDB:
+  mysqlDB:
